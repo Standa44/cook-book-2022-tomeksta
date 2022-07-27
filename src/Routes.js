@@ -15,7 +15,6 @@ export function Routes() {
       <Route path="/recipe/:slug/upravit" element={<RecipeEditPage />} />
       <Route path="/novy-recept" element={<AddNewRecipePage />} />
       <Route path="/prilohy" element={<SideDishesPage />} />
-
       <Route path="*" element={<NotFoundPage />} />
     </RouterRoutes>
   );

@@ -1,7 +1,7 @@
 import React from 'react'
-import { useState, useEffect } from 'react';
+import { useState,  } from 'react';
 
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { api } from '../api';
 import { BsPeopleFill } from 'react-icons/bs';
 
@@ -10,8 +10,6 @@ import { BsPeopleFill } from 'react-icons/bs';
 import { Alert, Button,  Col, Container, Form, FormGroup, Input, InputGroup, InputGroupText, Label, Row, Spinner } from 'reactstrap';
 
 const AddNewRecipePage = () => {
-  const [recipes, setRecipes] = useState([]);
-
   const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
   const navigate = useNavigate();
@@ -48,8 +46,6 @@ const AddNewRecipePage = () => {
       .replace(/\s+/g, '-')
       .replace(/[^\w-]+/g, '')
       .replace(/--+/g, '-');
-
-    console.log("slugify: ",slugify(newTitle))
 
   const handleAddNewRecipeClicked = () => {
     setIsLoading(true);
