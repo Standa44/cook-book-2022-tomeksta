@@ -31,6 +31,14 @@ export const CardBodyWrapper = styled.div`
 
 export const ArrayDirectionsWrapper = styled.div`
   display: flex;
+  button {
+    background-color: #d3d5d9;
+    color: black;
+  }
+  button:hover {
+    background-color: #bec0c6;
+    color: black;
+  }
   p {
     padding: 10px;
     margin-top: auto;
@@ -38,7 +46,7 @@ export const ArrayDirectionsWrapper = styled.div`
   }
   &:hover {
     border-radius: 10px;
-    background-color: #f1d2a7;
+    background-color: #e9eaec;
   }
 `;
 

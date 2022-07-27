@@ -13,7 +13,6 @@ const RecipeDetailDirections = ({directions}) => {
       <ArrayDirectionsWrapper key={index}>
         <p>
           <Button
-            color="warning"
             onClick={ () => copyToClipboard(direction) }
             title="Zkopírovat daný krok"
             style={{width: "40px", height: "40px"}}
