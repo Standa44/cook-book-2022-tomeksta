@@ -5,9 +5,13 @@ import { App } from './App';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-ReactDOM.render(
+//------default setting -> was causing console error
+/*ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
   document.getElementById('root'),
-);
+);*/
+
+ReactDOM.render(<App />, document.getElementById('root'));
+

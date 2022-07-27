@@ -1,11 +1,15 @@
-import { Navbar, Container, NavbarBrand } from 'reactstrap';
+import { Navbar, Container } from 'reactstrap';
+import { NavbarWrapper } from './styledComponents';
+import HeaderHeadline from './HeaderHeadline';
 
 export function Header() {
   return (
-    <Navbar color="dark" dark>
-      <Container>
-        <NavbarBrand href="/">Cookbook</NavbarBrand>
-      </Container>
-    </Navbar>
+    <NavbarWrapper>
+      <Navbar color="dark" dark>
+        <Container>
+          <HeaderHeadline />
+        </Container>
+      </Navbar>
+    </NavbarWrapper>
   );
 }
