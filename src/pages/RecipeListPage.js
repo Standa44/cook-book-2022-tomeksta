@@ -23,31 +23,19 @@ export function RecipeListPage() {
   }, []);
 
   const handleSearchInputChange = (event) => setSearchValue(event.target.value);
-  const latinizeText = (title) => {
-    var latinizeTitle = title.toLowerCase();
-    latinizeTitle = latinizeTitle.replace(new RegExp('š', 'g'), 's');
-    latinizeTitle = latinizeTitle.replace(new RegExp('č', 'g'), 'c');
-    latinizeTitle = latinizeTitle.replace(new RegExp('ř', 'g'), 'r');
-    latinizeTitle = latinizeTitle.replace(new RegExp('ž', 'g'), 'z');
-    latinizeTitle = latinizeTitle.replace(new RegExp('[àá]', 'g'), 'a');
-    latinizeTitle = latinizeTitle.replace(new RegExp('[èéě]', 'g'), 'e');
-    latinizeTitle = latinizeTitle.replace(new RegExp('[ìí]', 'g'), 'i');
-    latinizeTitle = latinizeTitle.replace(new RegExp('[òóö]', 'g'), 'o');
-    latinizeTitle = latinizeTitle.replace(new RegExp('[ùúů]', 'g'), 'u');
-    latinizeTitle = latinizeTitle.replace(new RegExp('[ýÿ]', 'g'), 'y');
-    return latinizeTitle;
-  };
-
   const filteredRecipes = recipes.filter(({ title }) => {
-    var latinizeTitle = latinizeText(title).toLowerCase();
-    var latinizeSearchValue = latinizeText(searchValue).toLowerCase();
+    const latinizeTitle = title.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase();
+    const latinizeSearchValue = searchValue
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase();
     return latinizeTitle.includes(latinizeSearchValue);
   });
 
   return (
     <Container>
       <SortValueContext.Provider
-        value={{ select, setSelect, searchValue, setSearchValue }}
+        value={{ select, setSelect }}
       >
         <BodyHeader recipesAmount={recipes.length} />
         <SearchInput
